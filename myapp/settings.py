@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=@=2cz!=mymnhs^$_bm_hp^^-84b#t+(e_flgu&tkhicfmpt_y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['anime-blog-vh5r.onrender.com', '127.0.0.1', 'localhost'] 
 
 
 # Application definition
