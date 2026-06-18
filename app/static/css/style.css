@@ -1,0 +1,936 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: #000;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ffaf40;
+}
+
+.search-box input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Banner */
+.carousel {
+    overflow: hidden;
+    min-width: 250px;
+    margin: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background-color: #222;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #ffaf40;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #ff8800;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.controls button {
+    background: #ffaf40;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #ff8800;
+}
+
+
+/* container */
+
+
+.promo-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 40px;
+    flex-wrap: wrap;
+    /* ছোট স্ক্রিনে wrap করবে */
+
+}
+
+.promo-card {
+    background-color: #222;
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    /* card এর minimum width */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s;
+
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+}
+
+.promo-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.promo-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffaf40;
+}
+
+.promo-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #ffaf40;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #ff8800;
+}
+
+/*  chapter for next page */
+
+/* Responsive layout for chapter listings */
+
+/* ১. চ্যাপ্টারগুলোর মেইন কন্টেইনার */
+.chapters {
+    display: flex !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    /* 🎯 জাদুকরী লাইন: ভেতরের সব কার্ডকে সমান উচ্চতা দেবে */
+}
+
+/* ২. আপনার সিঙ্গেল ছোট চ্যাপ্টার কার্ড */
+.chapter {
+    flex: 1 !important;
+    min-width: 250px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* ভেতরের কন্টেন্ট ওপর-নিচ করার জন্য */
+    justify-content: space-between !important;
+    background-color: #1e1e1e !important;
+    /* আপনার ব্যাকগ্রাউন্ড কালার */
+    padding: 15px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    min-height: 280px !important;
+}
+
+/* ৩. কার্ডের ভেতরের ইমেজ সেকশন */
+.chapter img {
+    width: 100% !important;
+    height: 180px !important;
+    /* 🎯 ইমেজের হাইট একদম ফিক্সড */
+    object-fit: cover !important;
+    /* ইমেজ যেন চ্যাপ্টা বা নষ্ট না হয় */
+    border-radius: 6px !important;
+    margin-bottom: 12px !important;
+}
+
+/* ৪. কার্ডের ভেতরের টাইটেল বা টেক্সট */
+.chapter h3 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    margin-top: 8px !important;
+    color: #ffffff !important;
+    /* 🎯 টাইটেল যদি বেশি বড় হয়, তবে সর্বোচ্চ ২ লাইন দেখিয়ে বাকিটা '...' করে দেবে */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+/* ==========================================
+   Top Anime List Section Styling
+   ========================================== */
+
+/* মেইন কন্টেইনার */
+.top-anime-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* পেজের মেইন হেডিং */
+
+.page-title {
+    color: #ffaf40;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* পুরো লিস্টের র‍্যাপার */
+
+.anime-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* প্রতিটি লিস্ট কার্ডের নিখুঁত ডিজাইন */
+.anime-rank-card {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e24;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #2d2d35;
+}
+
+/* কার্ডের ওপর মাউস নিলে হালকা ওপরে উঠবে */
+.anime-rank-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(255, 175, 64, 0.15);
+    border-color: #ffaf40;
+}
+
+/* র‍্যাংক মেডেল/ব্যাজ */
+.anime-rank-badge {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffaf40;
+    min-width: 70px;
+    text-align: center;
+    border-right: 2px solid #2d2d35;
+    padding-right: 15px;
+    margin-right: 20px;
+}
+
+/* ছবির কন্টেইনার */
+.anime-image-box {
+    width: 120px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.anime-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.anime-rank-card:hover .anime-image-box img {
+    transform: scale(1.08);
+}
+
+/* top movies */
+
+.top-movies-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* পেজের মেইন হেডিং */
+
+.page-title {
+    color: #ffaf40;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* পুরো লিস্টের র‍্যাপার */
+
+.movies-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* প্রতিটি লিস্ট কার্ডের নিখুঁত ডিজাইন */
+.movies-rank-card {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e24;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #2d2d35;
+}
+
+/* কার্ডের ওপর মাউস নিলে হালকা ওপরে উঠবে */
+.movies-rank-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(255, 175, 64, 0.15);
+    border-color: #ffaf40;
+}
+
+/* র‍্যাংক মেডেল/ব্যাজ */
+.movies-rank-badge {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffaf40;
+    min-width: 70px;
+    text-align: center;
+    border-right: 2px solid #2d2d35;
+    padding-right: 15px;
+    margin-right: 20px;
+}
+
+/* ছবির কন্টেইনার */
+.movies-image-box {
+    width: 120px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.movies-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.movies-rank-card:hover .anime-image-box img {
+    transform: scale(1.08);
+}
+
+
+
+/* টেক্সট কন্টেন্ট এরিয়া */
+.movies-details-box {
+    flex-grow: 1;
+}
+
+.movies-title {
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.movies-meta-info {
+    margin-bottom: 12px;
+}
+
+/* রেটিং ব্যাজ */
+.rating-badge {
+    background-color: rgba(255, 175, 64, 0.2);
+    color: #ffaf40;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 175, 64, 0.4);
+}
+
+/* ডেসক্রিপশন টেক্সট */
+.movies-description {
+    color: #b3b3b3;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+/* ডাটা না থাকলে যে মেসেজ দেখাবে */
+.no-data-msg {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    padding: 40px;
+    background: #1e1e24;
+    border-radius: 12px;
+}
+
+/* 📱 মোবাইল বা ছোট স্ক্রিনের জন্য রেস্পনসিভ ডিজাইন */
+@media (max-width: 768px) {
+    .anime-rank-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .anime-rank-badge {
+        border-right: none;
+        border-bottom: 2px solid #2d2d35;
+        padding-right: 0;
+        padding-bottom: 10px;
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .anime-image-box {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 140px;
+        height: 190px;
+    }
+
+    .anime-description {
+        text-align: center;
+    }
+}
+
+
+
+
+/* ==========================================
+   Updated Footer Section Styling
+   ========================================== */
+
+footer {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 30px 10px; /* প্যাডিং একটু অ্যাডজাস্ট করা হলো */
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* 🎯 এটি ভেতরের সব সেকশনকে একদম সমান লাইনে টপ-অ্যালাইনড রাখবে */
+    align-items: flex-start; 
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    /* 🎯 সব সেকশনের ভেতরের কন্টেন্ট যেন ওপর থেকে সমানভাবে শুরু হয় */
+    justify-content: flex-start; 
+    align-items: center;
+    min-height: 150px; /* একটা মিনিমাম হাইট দিয়ে সব সমান করা হলো */
+}
+
+.footer-section h3 {
+    margin-top: 0; /* হেডিংয়ের ডিফল্ট এক্সট্রা টপ মার্জিন রিমুভ করা হলো */
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* 🎯 কন্টাক্ট সেকশনের ভেতরের p ও ইমেইল লিংকের ফন্ট এবং মার্জিন সমান করা */
+.footer-section p {
+    font-size: 14px;
+    color: #ddd;
+    line-height: 1.6;
+    margin: 5px 0; /* মার্জিন ফিক্স করা হলো যাতে উপরে-নিচে না হয়ে যায় */
+}
+
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    display: block; /* কুইক লিংকগুলোর জন্য */
+    margin: 5px 0;
+    transition: color 0.3s;
+    font-size: 14px; /* সব টেক্সটের সাইজ সমান রাখা হলো */
+}
+
+.footer-section a:hover {
+    color: #ffcc00;
+}
+
+/* সোশ্যাল আইকন সেকশন */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* আইকনগুলোকে হেডিং থেকে একটু নিচে নামানোর জন্য */
+}
+
+.social-icons a {
+    margin: 0 8px;
+    font-size: 20px;
+    color: white;
+    display: inline-block; /* ব্লক থেকে ইনলাইন-ব্লক করা হলো যেন পাশাপাশি বসে */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #ffcc00;
+}
+
+/* ফুটার বটম (কপিরাইট অংশ) */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+/*new article/*
+
+/* আর্টিকেলের মেইন কন্টেইনার */
+.article-container {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    /* ডার্ক থিম */
+    border-radius: 12px;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* আর্টিকেলের ইমেজ বক্স */
+.article-image-box {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.article-image-box img {
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* টাইটেল এবং মেটা ডাটা (লেখক/ক্যাটাগরি) */
+.article-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffaf40;
+    /* আপনার বাটনের থিম কালার */
+}
+
+.article-meta {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+}
+
+.article-divider {
+    border: 0;
+    height: 1px;
+    background: #333333;
+    margin: 20px 0;
+}
+
+/* আর্টিকেলের মূল বড় প্যারাগ্রাফ বা টেক্সট */
+.article-body {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #e0e0e0;
+}
+
+/* ==========================================
+   Category Page Styles (Anime, Movies, etc.)
+   ========================================== */
+
+.category-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 75vh;
+    /* পেজ যেন খালি না দেখায় */
+}
+
+/* ক্যাটাগরি টাইটেল স্টাইল */
+.category-heading {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 10px;
+}
+
+.category-heading span {
+    color: #ffaf40;
+    /* আপনার বাটনের সেই থিম কালার */
+}
+
+/* কার্ডগুলোকে পাশাপাশি গ্রিড আকারে সাজানো */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+/* সিঙ্গেল ক্যাটাগরি কার্ড */
+.cat-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-5px);
+    /* মাউস নিলে হালকা ওপরে উঠবে */
+}
+
+.cat-card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* ইমেজ যেন ফেটে বা চ্যাপ্টা না হয়ে যায় */
+    display: block;
+}
+
+.cat-card-content {
+    padding: 20px;
+}
+
+.cat-card-content h3 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.cat-card-content p {
+    font-size: 15px;
+    color: #cccccc;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* কোনো পোস্ট না থাকলে তার মেসেজ */
+.no-posts {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 0;
+    color: #888888;
+    font-size: 18px;
+}
+
+/* About */
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #311042 50%, #ff6600 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    color: #f7f7f7;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffd54f;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e8e8e8;
+}
+
+.hero-text .btn {
+    padding: 12px 25px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-text .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 137, 0, 0.3);
+}
+
+.btn-primary {
+    background: #ff6600;
+    color: #fff;
+}
+
+.hero-img {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.hero-img img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid #ffd54f;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(255, 136, 0, 0.25);
+}
+
+
+.skills {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.skills h2 {
+    color: #ff6600;
+    margin-bottom: 20px;
+}
+
+.skills-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skills-icons div {
+    background: #e4e1e1;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .banner {
+        flex-direction: column;
+        /* ফোনে text + image নিচে নিচে আসবে */
+        text-align: center;
+    }
+
+    .banner-text {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .banner-img img {
+        width: 90%;
+    }
+
+    /* ======================================================
+   📱 মোবাইল ও ছোট স্ক্রিনে ব্যানার ও পোস্টের জ্যাম কাটানোর কোড
+   ====================================================== *
+    
+    /* ১. ওপরে থাকা ক্যারোসেল/ব্যানার সেকশন */
+    .carousel {
+        width: 100% !important;
+        margin-bottom: 40px !important;
+        /* ব্যানার থেকে নিচের সেকশনের দূরত্ব বাড়াবে */
+        display: block !important;
+    }
+
+    /* ২. নিচের পোস্টের মেইন কন্টেইনার (যা ওপরে লেগে যাচ্ছিল) */
+    .promo-container {
+        display: flex !important;
+        flex-direction: column !important;
+        /* একটার নিচে আরেকটা বসাবে */
+        width: 100% !important;
+        margin-top: 30px !important;
+        margin-bottom: 20px;
+        /* 🎯 মেইন জাদুকরী লাইন: ওপরের ব্যানার থেকে ৫০ পিক্সেল নিচে নামিয়ে দেবে */
+        padding: 0 15px !important;
+        /* দুই পাশে হালকা ফাঁকা স্পেস */
+        box-sizing: border-box !important;
+        gap: 15px !important;
+        /* ওপরে ফ্লোট জাতীয় কোনো ঝামেলা থাকলে তা কেটে দেবে */
+    }
+
+    /* ৩. আপনার আসল পোস্ট কার্ড */
+    .promo-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        margin-bottom: 0px !important;
+        /* প্রতিটা কার্ডের মাঝখানে সুন্দর গ্যাপ থাকবে */
+        background-color: #1e1e1e !important;
+        /* কার্ডের ব্যাকগ্রাউন্ড (আপনার মেইন থিম অনুযায়ী) */
+        border-radius: 8px !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    .promo-container .promo-card:last-child {
+        margin-bottom: 10px !important;
+    }
+
+    /* ৪. কার্ডের ভেতরের ইমেজ */
+    .promo-card img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 220px !important;
+        /* ব্যানারের মতো সুন্দর চওড়া হাইট */
+        object-fit: cover !important;
+        /* ইমেজ যেন চ্যাপ্টা না দেখায় */
+        border-radius: 6px !important;
+        margin-bottom: 15px !important;
+        /* ইমেজের নিচ থেকে লেখার দূরত্ব */
+        display: block !important;
+    }
+
+
+
+
+    /* ====================================================
+   📱 মোবাইল ও ট্যাবলেটের জন্য রেসপনসিভ নেভবার লজিক 
+   ==================================================== */
+    /* ১. মেইন নেভবার কন্টেইনারকে উপর-নিচ করে দেওয়া হলো */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+        text-align: center;
+    }
+
+    /* ২. মেনু লিংকগুলোকে (ul) পাশাপাশি থেকে নিচে নিচে নামানো এবং সেন্টারে আনা */
+    .navbar ul {
+        flex-direction: row;
+        /* মোবাইলেও মেনুগুলো এক লাইনে পাশাপাশি থাকবে */
+        flex-wrap: wrap;
+        /* বেশি বড় হলে স্বয়ংক্রিয়ভাবে পরের লাইনে যাবে */
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
+    }
+
+    /* ৩. লিন্কগুলোর মাঝখানের বাড়তি গ্যাপ মোবাইলের জন্য অ্যাডজাস্ট করা */
+    .navbar ul li {
+        margin: 5px 10px;
+    }
+
+    /* ৪. সার্চ বক্স ইনপুটটি মোবাইলে যেন পুরো চওড়া (Full Width) হয় */
+    .search-box {
+        width: 90%;
+        margin-top: 5px;
+    }
+
+    .search-box input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}

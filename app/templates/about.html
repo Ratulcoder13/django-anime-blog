@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero">
+    <div class="hero-text">
+      <h1>Meet Ratul</h1>
+      <p>Aspiring Backend Developer with Python, Django, and problem-solving skills.</p>
+      <a href="mailto:ratulmdmarufhossain@gmail.com" class="btn btn-primary">Hire Me</a>
+    </div>
+    <div class="hero-img">
+      <img src="{% static 'images/ratul.jpg' %}" alt="Ratul">
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Expertise In</h2>
+    <div class="skills-icons">
+      <div>Html / Css / Tailwind</div>
+      <div>Python</div>
+      <div>Django</div>
+      <div>C++</div>
+      <div>SQL</div>
+    </div>
+  </section>
+
+ {% endblock %}

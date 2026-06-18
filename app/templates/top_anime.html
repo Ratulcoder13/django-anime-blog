@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="top-anime-container">
+    <h1 class="page-title">Top Anime Series</h1>
+    
+    <div class="anime-list-wrapper">
+        {% for anime in top_list %}
+        <div class="anime-rank-card">
+            
+            <div class="anime-rank-badge">
+                #{{ anime.rank }}
+            </div>
+            
+            <div class="anime-image-box">
+                {% if anime.image %}
+                    <img src="{{ anime.image.url }}" alt="{{ anime.title }}">
+                {% else %}
+                    <img src="/static/images/default.jpg" alt="Default Image">
+                {% endif %}
+            </div>
+            
+            <div class="anime-details-box">
+                <h2 class="anime-title">{{ anime.title }}</h2>
+                <div class="anime-meta-info">
+                    <span class="rating-badge">⭐ {{ anime.rating }}</span>
+                </div>
+                <p class="anime-description">{{ anime.description }}</p>
+            </div>
+            
+        </div>
+        {% empty %}
+        <div class="no-data-msg">
+            <p>কোনো টপ এনিমে ডাটা পাওয়া যায়নি। অ্যাডমিন প্যানেল থেকে যোগ করুন!</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+  
+{% endblock %}

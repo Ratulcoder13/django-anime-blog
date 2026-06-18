@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="article-container">
+    
+    {% if post.image %}
+        <div class="article-image-box">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        </div>
+    {% endif %}
+    
+    <h1 class="article-title">{{ post.title }}</h1>
+    
+    <p class="article-meta">
+        <strong>Category:</strong> {{ post.category }} | <strong>Author:</strong> {{ post.author }}
+    </p>
+    
+    <hr class="article-divider">
+    
+    <div class="article-body">
+        {{ post.content }}
+    </div>
+
+    
+     <!-- Chapter Listings -->
+
+    <div class="chapters">
+        {% for ch in previous_chapters %}
+            <a href="{% url 'post_detail' ch.slug %}">
+            <div class="chapter">
+                {% if ch.image %}
+                    <img src="{{ ch.image.url }}" alt="{{ ch.title }}">
+                {% else %}
+                    <img src="/static/images/default.jpg" alt="default">
+                {% endif %}
+                <h3>{{ ch.title }}</h3>
+            </div>
+            </a>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

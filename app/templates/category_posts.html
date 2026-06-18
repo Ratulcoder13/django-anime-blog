@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="category-container">
+    
+    <h2 class="category-heading">
+        Category: <span>{{ category_name }}</span>
+    </h2>
+
+    <div class="category-grid">
+        {% for post in posts %}
+        <div class="cat-card">
+            
+            {% if post.image %}
+            <div class="cat-card-img">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            </div>
+            {% endif %}
+            
+            <div class="cat-card-content">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content|truncatechars:120 }}</p>
+                <a href="/post/{{ post.id }}/" class="btn">Start Reading</a>
+            </div>
+            
+        </div>
+        {% empty %}
+        <div class="no-posts">
+            <p>No articles available in this category yet, brother!</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

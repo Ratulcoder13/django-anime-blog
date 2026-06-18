@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="{% static 'js/carousel.js' %}"></script>
+</head>
+<body>
+  <main>
+    
+    <div class="navbar">
+        <div class="logo">Anime Blog</div>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+
+            <li><a href="/category/Anime/">Anime</a></li>
+            <li><a href="/category/Movies/">Movies</a></li>
+
+            <li><a href="{% url 'top_anime' %}">Top Anime Series</a></li>
+
+            <li><a href="{% url 'top_movies' %}">Top Movies</a></li>
+
+            <li><a href="{% url 'about_page' %}">About</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+  </main>
+
+
+
+    <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about_page' %}">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com/yourprofile" title="Facebook">
+          <i class="fab fa-facebook"></i>
+          </a>
+          <!-- LinkedIn -->
+
+          <a href="https://linkedin.com/in/yourprofile" title="Linkedin">
+          <i class="fab fa-linkedin"></i>
+          </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email:<a href="mailto:ratulmdmarufhossain@gmail.com">ratulmdmarufhossain@gmail.com</a></p>
+        <p>Phone: +880 1234 567890</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Anime Blog | Designed by <strong>Ratul</strong>
+    </div>
+  </footer>
+
+</body>
+</html>
