@@ -492,7 +492,7 @@ main {
 footer {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
-    padding: 30px 10px; /* প্যাডিং একটু অ্যাডজাস্ট করা হলো */
+    padding: 18px 10px;
     text-align: center;
 }
 
@@ -501,24 +501,25 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
     /* 🎯 এটি ভেতরের সব সেকশনকে একদম সমান লাইনে টপ-অ্যালাইনড রাখবে */
-    align-items: flex-start; 
+    align-items: flex-start;
     max-width: 1200px;
     margin: auto;
 }
 
 .footer-section {
     flex: 1 1 200px;
-    margin: 10px;
+    margin: 6px;
     display: flex;
     flex-direction: column;
     /* 🎯 সব সেকশনের ভেতরের কন্টেন্ট যেন ওপর থেকে সমানভাবে শুরু হয় */
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
-    min-height: 150px; /* একটা মিনিমাম হাইট দিয়ে সব সমান করা হলো */
+    min-height: 100px;
 }
 
 .footer-section h3 {
-    margin-top: 0; /* হেডিংয়ের ডিফল্ট এক্সট্রা টপ মার্জিন রিমুভ করা হলো */
+    margin-top: 0;
+    /* হেডিংয়ের ডিফল্ট এক্সট্রা টপ মার্জিন রিমুভ করা হলো */
     margin-bottom: 15px;
     font-size: 18px;
     border-bottom: 2px solid #fff;
@@ -528,19 +529,22 @@ footer {
 
 /* 🎯 কন্টাক্ট সেকশনের ভেতরের p ও ইমেইল লিংকের ফন্ট এবং মার্জিন সমান করা */
 .footer-section p {
-    font-size: 14px;
+    font-size: 16px;
     color: #ddd;
     line-height: 1.6;
-    margin: 5px 0; /* মার্জিন ফিক্স করা হলো যাতে উপরে-নিচে না হয়ে যায় */
+    margin: 5px 0;
+    /* মার্জিন ফিক্স করা হলো যাতে উপরে-নিচে না হয়ে যায় */
 }
 
 .footer-section a {
     color: #ddd;
     text-decoration: none;
-    display: block; /* কুইক লিংকগুলোর জন্য */
+    display: block;
+    /* কুইক লিংকগুলোর জন্য */
     margin: 5px 0;
     transition: color 0.3s;
-    font-size: 14px; /* সব টেক্সটের সাইজ সমান রাখা হলো */
+    font-size: 14px;
+    /* সব টেক্সটের সাইজ সমান রাখা হলো */
 }
 
 .footer-section a:hover {
@@ -552,14 +556,16 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px; /* আইকনগুলোকে হেডিং থেকে একটু নিচে নামানোর জন্য */
+    margin-top: 10px;
+    /* আইকনগুলোকে হেডিং থেকে একটু নিচে নামানোর জন্য */
 }
 
 .social-icons a {
     margin: 0 8px;
     font-size: 20px;
     color: white;
-    display: inline-block; /* ব্লক থেকে ইনলাইন-ব্লক করা হলো যেন পাশাপাশি বসে */
+    display: inline-block;
+    /* ব্লক থেকে ইনলাইন-ব্লক করা হলো যেন পাশাপাশি বসে */
     transition: transform 0.3s, color 0.3s;
 }
 
@@ -570,13 +576,13 @@ footer {
 
 /* ফুটার বটম (কপিরাইট অংশ) */
 .footer-bottom {
-    margin-top: 20px;
+    margin-top: 12px;
     font-size: 14px;
     border-top: 1px solid #444;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
-/*new article/*
+/* new article */
 
 /* আর্টিকেলের মেইন কন্টেইনার */
 .article-container {
@@ -807,130 +813,93 @@ footer {
     min-width: 100px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
 @media (max-width: 768px) {
 
+    /* ১. ব্যানার রেসপন্সিভ (আগে যেমন পারফেক্ট ছিল) */
     .banner {
-        flex-direction: column;
-        /* ফোনে text + image নিচে নিচে আসবে */
-        text-align: center;
+        flex-direction: column !important;
+        text-align: center !important;
     }
 
     .banner-text {
-        max-width: 100%;
-        margin-bottom: 20px;
+        max-width: 100% !important;
+        margin-bottom: 20px !important;
     }
 
     .banner-img img {
-        width: 90%;
+        width: 90% !important;
     }
 
-    /* ======================================================
-   📱 মোবাইল ও ছোট স্ক্রিনে ব্যানার ও পোস্টের জ্যাম কাটানোর কোড
-   ====================================================== *
-    
-    /* ১. ওপরে থাকা ক্যারোসেল/ব্যানার সেকশন */
-    .carousel {
-        width: 100% !important;
-        margin-bottom: 40px !important;
-        /* ব্যানার থেকে নিচের সেকশনের দূরত্ব বাড়াবে */
-        display: block !important;
-    }
-
-    /* ২. নিচের পোস্টের মেইন কন্টেইনার (যা ওপরে লেগে যাচ্ছিল) */
-    .promo-container {
-        display: flex !important;
-        flex-direction: column !important;
-        /* একটার নিচে আরেকটা বসাবে */
-        width: 100% !important;
-        margin-top: 30px !important;
-        margin-bottom: 20px;
-        /* 🎯 মেইন জাদুকরী লাইন: ওপরের ব্যানার থেকে ৫০ পিক্সেল নিচে নামিয়ে দেবে */
-        padding: 0 15px !important;
-        /* দুই পাশে হালকা ফাঁকা স্পেস */
-        box-sizing: border-box !important;
-        gap: 15px !important;
-        /* ওপরে ফ্লোট জাতীয় কোনো ঝামেলা থাকলে তা কেটে দেবে */
-    }
-
-    /* ৩. আপনার আসল পোস্ট কার্ড */
-    .promo-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: block !important;
-        margin-bottom: 0px !important;
-        /* প্রতিটা কার্ডের মাঝখানে সুন্দর গ্যাপ থাকবে */
-        background-color: #1e1e1e !important;
-        /* কার্ডের ব্যাকগ্রাউন্ড (আপনার মেইন থিম অনুযায়ী) */
-        border-radius: 8px !important;
-        padding: 15px !important;
-        box-sizing: border-box !important;
-    }
-
-    .promo-container .promo-card:last-child {
-        margin-bottom: 10px !important;
-    }
-
-    /* ৪. কার্ডের ভেতরের ইমেজ */
-    .promo-card img {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 220px !important;
-        /* ব্যানারের মতো সুন্দর চওড়া হাইট */
-        object-fit: cover !important;
-        /* ইমেজ যেন চ্যাপ্টা না দেখায় */
-        border-radius: 6px !important;
-        margin-bottom: 15px !important;
-        /* ইমেজের নিচ থেকে লেখার দূরত্ব */
-        display: block !important;
-    }
-
-
-
-
-    /* ====================================================
-   📱 মোবাইল ও ট্যাবলেটের জন্য রেসপনসিভ নেভবার লজিক 
-   ==================================================== */
-    /* ১. মেইন নেভবার কন্টেইনারকে উপর-নিচ করে দেওয়া হলো */
+    /* ২. নেভবার মোবাইলে পাশাপাশি রাখার জন্য (আগের কোড) */
     .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 10px;
-        text-align: center;
+        flex-direction: column !important;
+        gap: 15px !important;
+        padding: 15px 10px !important;
+        text-align: center !important;
     }
 
-    /* ২. মেনু লিংকগুলোকে (ul) পাশাপাশি থেকে নিচে নিচে নামানো এবং সেন্টারে আনা */
     .navbar ul {
-        flex-direction: row;
-        /* মোবাইলেও মেনুগুলো এক লাইনে পাশাপাশি থাকবে */
-        flex-wrap: wrap;
-        /* বেশি বড় হলে স্বয়ংক্রিয়ভাবে পরের লাইনে যাবে */
-        justify-content: center;
-        gap: 10px;
-        padding: 0;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 0 !important;
     }
 
-    /* ৩. লিন্কগুলোর মাঝখানের বাড়তি গ্যাপ মোবাইলের জন্য অ্যাডজাস্ট করা */
     .navbar ul li {
-        margin: 5px 10px;
+        margin: 5px 10px !important;
     }
 
-    /* ৪. সার্চ বক্স ইনপুটটি মোবাইলে যেন পুরো চওড়া (Full Width) হয় */
     .search-box {
-        width: 90%;
-        margin-top: 5px;
+        width: 90% !important;
+        margin-top: 5px !important;
     }
 
     .search-box input {
-        width: 100%;
-        box-sizing: border-box;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
+    /* ৩. ফুটার ফিক্স (শুধু ফুটার কন্টেইনার এবং ভেতরের স্পেসিং) */
+    .footer-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 10px 0 !important;
+        height: auto;
+    }
+
+    .footer-section {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        flex: none !important;
+        margin-bottom: 0px !important;
+        margin-top: 0 !important;
+        min-height: auto !important;
+        padding: 8px 0 !important;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 4px !important;
+        font-size: 15px !important;
+    }
+
+    .footer-section a {
+        margin: 2px 0 !important;
+        padding: 0 !important;
+    }
+
+    .footer-section p {
+        margin: 2px 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .social-icons {
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 0 !important;
+        gap: 14px !important;
+    }
 }
