@@ -36,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage', 
     'django.contrib.staticfiles',
-    'app',
+    'app', 
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +124,18 @@ STATICFILES_DIRS = [
 ]
 
 import os
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
+
+# Cloudinary সেটিংস (স্থায়ীভাবে ছবি সেভ রাখার জন্য)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dhse4ecnb',
+    'API_KEY': '899179322866745',
+    'API_SECRET': 'oNkhNhRpKXdStg7V_stRSxrwnUc',
+}
+
+# ডিফল্ট ফাইল স্টোরেজ হিসেবে ক্লাউডিনারি সেট করা হলো
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+MEDIA_URL = '/media/'
+
+
