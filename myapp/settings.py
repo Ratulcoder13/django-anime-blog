@@ -135,7 +135,7 @@ CLOUDINARY_STORAGE = {
 
 # ডিফল্ট ফাইল স্টোরেজ হিসেবে ক্লাউডিনারি সেট করা হলো
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+STATICFILES_STORAGE = 'django.cintrib.staticfiles.storage.StaticFilesStorage'
 MEDIA_URL = '/media/'
 
 
