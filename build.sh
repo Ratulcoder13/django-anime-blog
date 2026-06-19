@@ -6,7 +6,7 @@ set -o errexit
 pip install -r requirements.txt
 python manage.py collectstatic --no-input
 python manage.py migrate
-
+export DJANGO_SETTINGS_MODULE="anime_blog.settings"
 # 🎯 এই কোডটুকু অটোমেটিক অনলাইনে আপনার এডমিন অ্যাকাউন্ট বানিয়ে দেবে
 python -c "
 import django
