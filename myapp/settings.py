@@ -85,7 +85,7 @@ if 'collectstatic' in sys.argv or os.environ.get('RENDER_EXTERNAL_URL') is None:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(file))), 'db.sqlite3'),
+            'NAME': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'db.sqlite3'),
         }
     }
 else:
