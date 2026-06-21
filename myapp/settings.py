@@ -76,16 +76,26 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-
-import dj_database_url
+import sys
 import os
+import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:23Mm78c40501@db.wlljlnxoyrlicncwyugn.supabase.co:5432/postgres',
-        conn_max_age=600
-    )
-}
+# Render যখন বিল্ড করবে তখন সাময়িক SQLite ব্যবহার করবে, লাইভ হলে Supabase ব্যবহার করবে
+if 'collectstatic' in sys.argv or os.environ.get('RENDER_EXTERNAL_URL') is None:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(file))), 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgresql://postgres.wlljlnxoyrlicncwyugn:23Mm78c40501@aws-1-ap-northeast-2.pooler.supabase.com:6543/postgres',
+            conn_max_age=600
+        )
+    }
+
 
 
 # Password validation
