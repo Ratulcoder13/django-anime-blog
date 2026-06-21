@@ -20,11 +20,11 @@ def home(request):
 
 
 
-def post_detail(request,slug):
+def post_detail(request,id):
     
       # ডাটাবেস থেকে নির্দিষ্ট আইডির পোস্টটি তুলে আনা হচ্ছে
       
-    current_post = get_object_or_404(BlogApp, slug=slug)
+    current_post = get_object_or_404(BlogApp, id=id)
     
     
     # ২. টাইটেল থেকে সিরিজ বা নাম আলাদা করার একদম সেফ লজিক
@@ -56,7 +56,7 @@ def post_detail(request,slug):
         previous_chapters = BlogApp.objects.filter(
             category=current_post.category,
             status="Published"
-        ).exclude(slug=slug).order_by('-pk')[:2]
+        ).exclude(id=id).order_by('-pk')[:2]
 
     context = {
         'post': current_post,

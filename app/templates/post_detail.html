@@ -27,7 +27,7 @@
 
     <div class="chapters">
         {% for ch in previous_chapters %}
-            <a href="{% url 'post_detail' ch.slug %}">
+            <a href="{% url 'post_detail' ch.id %}">
             <div class="chapter">
                 {% if ch.image %}
                     <img src="{{ ch.image.url }}" alt="{{ ch.title }}">

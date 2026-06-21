@@ -27,7 +27,7 @@ urlpatterns = [
     
     # main different page air jonno 
     
-    path('post/<slug:slug>/',views.post_detail,name="post_detail"),
+    path('post/<int:id>/',views.post_detail,name="post_detail"),
     
     # url dia catagory name catch kora hobo like Anime,Movies
     path('category/<str:cat_name>/',views.category_view,name="category_page"),
