@@ -91,7 +91,7 @@ if 'collectstatic' in sys.argv or os.environ.get('RENDER_EXTERNAL_URL') is None:
 else:
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgresql://postgres.wlljlnxoyrlicncwyugn:23Mm78c40501@aws-1-ap-northeast-2.pooler.supabase.com:6543/postgres',
+            default='postgresql://postgres.wlljlnxoyrlicncwyugn:23Mm78c40501@@aws-1-ap-northeast-2.pooler.supabase.com:6543/postgres',
             conn_max_age=600
         )
     }
