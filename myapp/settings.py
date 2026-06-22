@@ -96,7 +96,7 @@ else:
         )
     }
 
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -142,9 +142,9 @@ STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
 
 # Cloudinary সেটিংস (স্থায়ীভাবে ছবি সেভ রাখার জন্য)
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dhse4ecnb',
-    'API_KEY': '899179322866745',
-    'API_SECRET': 'oNkhNhRpKXdStg7V_stRSxrwnUc',
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
 # ডিফল্ট ফাইল স্টোরেজ হিসেবে ক্লাউডিনারি সেট করা হলো
